@@ -1,17 +1,23 @@
 {
-  "name": "js-socket-examples",
+  "name": "node.js-websockets",
   "version": "1.0.0",
-  "description": "Some socket examples with Node.js and PubNub",
-  "main": "client.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "Adam Bavosa <adamb@pubnub.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/darryncampbell-pubnub/Node.js-WebSockets.git"
+  },
+  "author": "Darryn Campbell",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darryncampbell-pubnub/Node.js-WebSockets/issues"
+  },
+  "homepage": "https://github.com/darryncampbell-pubnub/Node.js-WebSockets#readme",
   "dependencies": {
-    "pubnub": "^4.24.4",
-    "websocket": "^1.0.29"
+    "express": "^4.18.2",
+    "ws": "^8.12.0"
   }
 }

@@ -1,0 +1,45 @@
+<html>
+
+<head>
+    <script src="https://cdn.pubnub.com/sdk/javascript/pubnub.7.2.2.min.js"></script>
+</head>
+
+<body>
+    <H1>This code uses PubNub which is protocol agnostic</H1>
+    <form id="input-form">
+        <label for="message">Enter Message:</label>
+        <input type="text" id="message" name="message"><br><br>
+        <input type="submit" value="Send">
+    </form>
+    <div id="messages"></div>
+
+    <script>
+        var pubnub = new PubNub({
+            publishKey: 'demo',
+            subscribeKey: 'demo',
+            userId: "" + Math.random()
+        })
+        pubnub.subscribe({
+            channels: ['ws-channel']
+        })
+        pubnub.addListener({
+            message: payload => {
+                console.log()
+                document.getElementById('messages').innerHTML += 'Message from client: ' + payload.message + "<br>";
+            }
+        })
+        function sendMessage(event) {
+            var inputMessage = document.getElementById('message')
+            pubnub.publish({
+                channel: 'ws-channel',
+                message: inputMessage.value
+            })
+            inputMessage.value = ""
+            event.preventDefault();
+        }
+        document.getElementById('input-form').addEventListener('submit', sendMessage);
+    </script>
+
+</body>
+
+</html>
